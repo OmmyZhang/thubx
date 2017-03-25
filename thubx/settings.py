@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [u'thubx.club',
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
+    'usersystem.apps.UsersystemConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
