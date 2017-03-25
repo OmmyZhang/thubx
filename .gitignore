@@ -1,1 +1,3 @@
+uwsgi_params
 *.pyc
+*.sock
