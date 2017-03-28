@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^',include('home.urls')),
     url(r'^user/',include('usersystem.urls')),
+    url(r'^bocai/',include('bocai.urls')),
     url(r'^admin/', admin.site.urls),
 ]

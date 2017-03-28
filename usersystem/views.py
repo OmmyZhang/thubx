@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate , login
 from django.contrib.auth.models import User
+from bocai.models import Player
 
 def login_view(request):
     
@@ -26,7 +27,7 @@ def check(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect('/bocai/my/')
+        return HttpResponseRedirect('/bocai/')
     else:
         if User.objects.filter(username=username):
             return HttpResponseRedirect('/user/login?error=password')
@@ -35,11 +36,19 @@ def check(request):
 
 def register(request):
 
-    return render(request,'register.html');
+    ne = False
+    ie = False
+
+    if request.GET and request.GET.has_key('error'):
+        if request.GET['error'] == 'missingInfo':
+            ie = True
+        if request.GET['error'] == 'userExist':
+            ne = True
+
+    return render(request,'register.html',{'ne':ne,'ie':ie});
 
 def newUser(request):
 
-    print "New"
     try:
         username = request.POST['username']
         realname = request.POST['realname']
@@ -51,5 +60,18 @@ def newUser(request):
     if  not (username and realname and wechat and password):
         return HttpResponseRedirect('/user/register?error=missingInfo')
 
-    return HttpResponseRedirect('/user/login')
+    if User.objects.filter(username=username):
+        return HttpResponseRedirect('/user/register?error=userExist')
+    
+    user = User.objects.create_user(username,None,password)
+    user.last_name = realname
+    user.first_name = wechat
+    user.save()
+
+    p = Player(name = username,score = 3500)
+    p.save()
+
+
+    login(request,user)
+    return HttpResponseRedirect('/bocai/')
         

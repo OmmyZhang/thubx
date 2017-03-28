@@ -1,39 +1,128 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>清华大学学生辩论协会</title>
-    
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+<title>Home</title>
+<!-- BOOTSTRAP CORE STYLE CSS -->
+<link href="http://demo.sc.chinaz.com/Files/DownLoad/moban/201703/moban1970/assets/css/bootstrap.css" rel="stylesheet" />
+
+ <!-- STYLE SWITCHER CSS -->
+<link href="http://demo.sc.chinaz.com/Files/DownLoad/moban/201703/moban1970/assets/css/style-switcher.css" rel="stylesheet" />
+  <!-- CUSTOM STYLE CSS -->
+<link href="http://demo.sc.chinaz.com/Files/DownLoad/moban/201703/moban1970/assets/css/style.css" rel="stylesheet" />
+<!-- THEME COLOR STYLE ( DY DEFAULT IT IS HAVING RED COLOR YOUR CAN CHANGE IT BY REPLACEING red.css TO blue.css) -->
+<link id="mainCSS" href="http://demo.sc.chinaz.com/Files/DownLoad/moban/201703/moban1970/assets/css/themes/red.css" rel="stylesheet" />
+
 <style>
-body
-{
-    background-color:#d0e4fe;
+
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-h1
-{
-    font-family:"经典行书简","Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
-    font-size:5em;
-    color:purple;
-    text-align:center;
-    padding:20px 0px 0px 0px;
+
+.fa-5x {
+  font-size: 5em;
 }
-#pages
-{
-    padding:10px 0px 0px 80px;
+		
+.fa-ticket:before {
+  content:"\f145"
+ }
+ 
+.fa-location-arrow:before {
+  content: "\f124";
 }
-li
-{
-    padding:2px 0px 5px 0px;
+
+.fa-lightbulb-o:before {
+  content: "\f0eb";
 }
-ul
-{
-    padding:10px 0px 10px 100px;
+
+.white-color {
+	color:#ffffff;
 }
+
 </style>
 
+</head>
 <body>
-<h1> 清华大学学生辩论协会 </h1>
+ <div class="switcher" style="left:-95px;">
+	
+	<ul class="colors-list">           
+		<li><a title="Blue" id="blue" class="blue" ></a></li>
+		<li><a title="Red" id="red" class="red" ></a></li>
+	</ul>
+</div>	
+<!-- STYLE SWITCHER DIV END-->
+<div class="header-section">
+		
+		<div class="name-upper">
+			{% load static %}
+			<image src="{% static "bx.jpeg" %}" />
+		</div>
 
-<p>
-	搭建中。。。。。。。。。
-<p>
+	</div>
+<!--Main Header Section End-->
+<div class="container subscribe-sec">
+   <div class="row text-center">
+	   <div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-12">
+	  <h1 >  清华大学学生辩论协会</h1> 
+		   <hr />
+		   <h4 >COME AND JOIN US!</h4>
+
+			  
+		   </div>
+	   </div>
+   </div>
+</div>
+  <!--Subscribe Section End-->
+<div class="about-sec" >
+	<div class="container" >
+   <div class="row text-center">
+	   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-r pad-o" >
+	   <a href="/bocai/" class="white-color">
+		  <i class="fa fa-ticket fa-5x" ></i>
+		   <h3 >菠菜</h3>
+		   <p>
+			   清锋明辩有奖竞猜
+		   </p>
+	   </a>
+	   </div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-r pad-o" >
+		<a href="https://mp.weixin.qq.com/s/9FtINgwxpEtIMgnGbXl_tg" class="white-color">
+		  <i class="fa fa-location-arrow fa-5x" ></i>
+		   <h3 >入协</h3>
+		   <p>
+			   进入报名推送，填写问卷加入我们
+		   </p>
+	   </a>
+	   </div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  pad-o" >
+		  <i class="fa fa-lightbulb-o fa-5x" ></i>
+		   <h3 >Coming..</h3>
+		   <p>
+			   更多内容，敬请期待
+		   </p>
+	   </div>
+   </div>
+		
+</div>
+</div>
+  <!--About Section End-->
+
+ <!--Contact Section End-->
+<div id="footer">由辩协宣传部制作.<a target="_blank" href="/bocai/manage/">进入后台</a></div>
+<!--Footer Section End-->
+
+
+</body>
+</html>
+
