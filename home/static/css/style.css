@@ -1,0 +1,188 @@
+/*==================================
+ GENERAL STYLES
+  ===============================*/
+body {
+    background-color:#000;
+    color:#fff;
+    line-height:30px;
+}
+
+/*==================================
+ HEADER STYLES
+  ===============================*/
+  .header-section {
+width: 100%;
+height: 50px;
+background: #FF1844;
+text-align: center;
+margin-bottom:60px;
+
+		
+
+}
+         .name-upper {
+display: inline-block;
+background: #ff0030;
+padding: 20px 20px 15px 20px;
+ border-left: 2px dashed #fff;
+  border-right: 2px dashed #fff;
+   border-bottom: 2px dashed #fff;
+   border-radius: 0px 0px 25px 25px;
+-webkit-border-radius:0px 0px 25px 25px;
+        -moz-border-radius:0px 0px 25px 25px;
+   
+
+}
+       .name-logo {
+font-size: 30px;
+line-height: 40px;
+margin-top: 0px;
+color:#fff;
+text-transform: uppercase;
+}
+/*==================================
+ SUBSCRIBE STYLES
+  ===============================*/
+.subscribe-sec
+{
+    padding-bottom:60px;
+}
+.subscribe-sec h1
+{
+    font-size:60px;
+    font-weight:900;
+    padding-top:30px;
+}
+.subscribe-sec h4 {
+font-size:16px;
+}
+ .subscribe-sec .subscribe {
+   padding: 20px;
+   margin: 40px;
+   background: #ff0030;
+   color: #fff;
+   font-size: 20px;
+   font-weight: bold;
+   line-height: 25px;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}
+.input-set {
+background-color:transparent;
+border:1px solid #fff;
+    }
+.btn-set
+{
+    border:1px solid #fff;
+    background-color:#f00;
+    color:#fff;
+}
+    .btn-set:hover {
+    background-color:#FF1844;
+    border:1px solid #fff;
+    color:#fff;
+}
+.copyrights{
+	text-indent:-9999px;
+	height:0;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+}
+  /*==================================
+ ABOUT STYLES
+  ===============================*/
+
+  .about-sec
+  {
+      background-color:#0094ff;
+      padding-top:50px;
+      padding-bottom:60px;
+    }
+  .about-sec h3
+  {
+      font-weight:800;
+    }
+.bdr-b-r {
+    border-right:1px solid #fff;
+    border-bottom:1px solid #fff;
+    }
+.bdr-b
+{
+    border-bottom:1px solid #fff;
+}
+.bdr-r {
+     border-right:1px solid #fff;
+}
+.pad-o {
+padding:20px;
+}
+  /*==================================
+ CONTACT STYLES
+  ===============================*/
+
+  .contact-sec
+{
+    padding-bottom:60px;
+}
+.contact-sec h1
+{
+    font-size:60px;
+    font-weight:900;
+    padding-top:30px;
+}
+.contact-sec h4 {
+font-size:16px;
+}
+    .contact-sec .form-control {
+        border-radius:0px;
+        -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+        background-color:transparent;
+        border:1px solid #ff0030;
+        color:#ff0030;
+        min-height:50px;
+    }
+
+.btn-send,.btn-send:hover {
+    background-color:#000;
+     border:1px solid #ff0030;
+    color:#fff;
+     border-radius:0px;
+        -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+}
+
+/*==================================
+ FOOOTER STYLES
+  ===============================*/
+#footer {
+    padding:15px 40px;
+    color:#fff;
+    font-size:14px;
+    text-align:right;
+    background-color:#FF1844;
+}
+
+/*==================================
+ MEDIA QUERIES 
+  ===============================*/
+@media (min-width: 200px) and (max-width: 767px) {
+ .bdr-b-r {
+   border:none;
+    }
+.bdr-b
+{
+    border:none;
+}
+.bdr-r {
+      border:none;
+}
+}
+
+

@@ -1,0 +1,79 @@
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% Free To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    COLOUR:RED
+    ========================================================  */
+/*==================================
+ GENERAL STYLES
+  ===============================*/
+body {
+    background-color:#000;
+    color:#fff;
+}
+
+/*==================================
+ HEADER STYLES
+  ===============================*/
+  .header-section {
+background: #FF1844;
+
+		
+
+}
+         .name-upper {
+background: #ff0030;
+   
+
+}
+       
+/*==================================
+ SUBSCRIBE STYLES
+  ===============================*/
+
+ .subscribe-sec .subscribe {
+   background: #ff0030;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+}
+    .btn-set:hover {
+    background-color:#FF1844;
+}
+ /*==================================
+ ABOUT STYLES
+  ===============================*/
+
+  .about-sec
+  {
+      background-color:#0094ff;
+    }
+  /*==================================
+ CONTACT STYLES
+  ===============================*/
+
+
+    .contact-sec .form-control {
+        border:1px solid #ff0030;
+        color:#ff0030;
+    }
+
+.btn-send,.btn-send:hover {
+    background-color:#000;
+     border:1px solid #ff0030;
+}
+
+/*==================================
+ FOOOTER STYLES
+  ===============================*/
+#footer {
+    background-color:#FF1844;
+}
+
+
+
+

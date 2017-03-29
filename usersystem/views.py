@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate , login
+from django.contrib.auth import authenticate , login, logout
 from django.contrib.auth.models import User
 from bocai.models import Player
 
@@ -22,7 +22,7 @@ def check(request):
         username = request.POST['username']
         password = request.POST['password']
     except :
-        return HttpResponseRedirect('/user/login/')
+        return HttpResponseRedirect('/accounts/login/')
 
     user = authenticate(username=username, password=password)
     if user is not None:
@@ -30,9 +30,9 @@ def check(request):
         return HttpResponseRedirect('/bocai/')
     else:
         if User.objects.filter(username=username):
-            return HttpResponseRedirect('/user/login?error=password')
+            return HttpResponseRedirect('/accounts/login?error=password')
         else:
-            return HttpResponseRedirect('/user/login?error=user')
+            return HttpResponseRedirect('/accounts/login?error=user')
 
 def register(request):
 
@@ -55,13 +55,13 @@ def newUser(request):
         wechat   = request.POST['wechat']
         password = request.POST['password']
     except :
-        return HttpResponseRedirect('/user/register?error=missingInfo')
+        return HttpResponseRedirect('/accounts/register?error=missingInfo')
 
     if  not (username and realname and wechat and password):
-        return HttpResponseRedirect('/user/register?error=missingInfo')
+        return HttpResponseRedirect('/accounts/register?error=missingInfo')
 
     if User.objects.filter(username=username):
-        return HttpResponseRedirect('/user/register?error=userExist')
+        return HttpResponseRedirect('/accounts/register?error=userExist')
     
     user = User.objects.create_user(username,None,password)
     user.last_name = realname
@@ -74,4 +74,7 @@ def newUser(request):
 
     login(request,user)
     return HttpResponseRedirect('/bocai/')
-        
+    
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')

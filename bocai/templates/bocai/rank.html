@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="IE=10.000" http-equiv="X-UA-Compatible">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+
+<title>排行榜</title>
+
+<style>
+td{border-bottom:1px solid #efefef;text-align:center;}
+body {
+	{% load static %}
+	background:url("{% static "bocai.jpg" %}");
+	background-size:33.333333%;
+}
+</style>
+
+<body style='margin:0px;padding:0px;'>
+
+<div style="background-color:rgba(255,127,0,0.85);margin:2% 7% 0 7%;">
+
+<div align='center' style='background-color:rgba(255,127,0,0.8);padding:1px;color:#ffffff;'>
+<h3 align='center'>排行</h3></div>
+
+
+<table border='1' cellpadding='7' cellspacing='0' width='100%' align='center'><tbody>
+<tr><td><b>排名</b></td><td ><b>用户名</b></td><td ><b>菠菜数</b></td></tr>
+
+{% for p in players %}
+<tr> <td>{{forloop.counter}}</td> <td>{{p.name}}</td> <td>{{p.score}}</td> </tr>
+{% endfor %}
+
+
+
+</tbody></table>
+
+</div>
+
+</body></html>
