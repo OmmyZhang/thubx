@@ -50,7 +50,7 @@
 		    display: block;
 		    font-size: 45px;
 		    font-weight: 700;
-		    padding: 35px 0;
+		    padding: 25px 0;
 		    border-bottom: 1px solid #f0f0f0;
 		    margin-bottom: 30px;
 		}
@@ -64,7 +64,7 @@
 		    border: none;
 		    border-radius: 20px;
 		    box-shadow: none;
-		    padding: 0 20px 0 45px;
+		    padding: 0 20px 0 15px;
 		    height: 40px;
 		    transition: all 0.3s ease 0s;
 		}
@@ -212,11 +212,12 @@
 						
 						{% for x in debates %}
 						<div class="form-group">
-							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_l" style="width:20%;">
-							<label style="width:50%">{{x.team1}}({{x.odds1}}) <B>vs</B> {{x.team2}}({{x.odds2}})</label>
-							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_r" style="width:20%;">
-  						<hr/>
+							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_l" style="width:7em;">
+							<label style="min-width:240px">{{x.team1}}({{x.odds1}}) <B>vs</B> {{x.team2}}({{x.odds2}})</label>
+							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_r" style="width:7em">
+  						
   						</div>
+						<hr/>
   						{% endfor %}
 						<div class="form-group">
 							<button type="submit" class="btn btn-default">投注</button>

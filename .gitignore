@@ -2,3 +2,4 @@ uwsgi_params
 *.pyc
 *.sock
 staticfiles/
+db.sqlite3
