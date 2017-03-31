@@ -31,7 +31,7 @@ body {
 
 .user-info {
 	position:fixed;
-	right:2em;
+	right:5pt;
 	top:0;
 	font-size:1em;
 	color:black;
@@ -42,16 +42,6 @@ body {
 
 </head>
 <body>
-
-<div class="user-info" >
-{% if name %}
-你好 {{name}} [<a href="/accounts/logout/">登出</a>]
-{% else %}
- [<a href="/accounts/login/">登录</a>]
-{% endif %}
- [<a href="/">回主页</a>]
-</div>
-
 
 <!--Main Header Section End-->
 <div class="container subscribe-sec">
@@ -92,6 +82,14 @@ body {
 <div id="footer">由辩协宣传部制作.<a target="_blank" href="/bocai/manage/">菠菜管理后台</a></div>
 <!--Footer Section End-->
 
+<div class="user-info" >
+{% if name %}
+你好 {{name}} [<a href="/accounts/logout/">登出</a>]
+{% else %}
+ [<a href="/accounts/login/">登录</a>]
+{% endif %}
+ [<a href="/">回主页</a>]
+</div>
 
 </body>
 </html>
