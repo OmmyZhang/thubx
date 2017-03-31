@@ -23,10 +23,28 @@
 	color:#ffffff;
 }
 
+.user-info {
+	position:fixed;
+	right:2em;
+	top:0;
+	font-size:1em;
+	color:black;
+	background-color:rgba(255,255,255,0.7);
+	padding:0 0.5em
+}
 </style>
 
 </head>
 <body>
+
+<div class="user-info" >
+{% if name %}
+你好 {{name}} [<a href="/accounts/logout/">登出</a>]
+{% else %}
+ [<a href="/accounts/login/">登录</a>]
+{% endif %}
+ [<a href="/">回主页</a>]
+</div>
 
 <div class="header-section">
 		
@@ -52,21 +70,52 @@
 <div class="about-sec" >
 	<div class="container" >
    <div class="row text-center">
-	   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-r pad-o" >
+   	   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-b-r pad-o" >
+	   <a target="_blank" href="https://mp.weixin.qq.com/s/-lWjur3CluJAmcqEKncM7g" class="white-color">
+		  <i class="fa fa-calendar-check-o fa-5x" ></i>
+		   <h3 >赛事详情</h3>
+		   <p>
+			   了解最近一轮清锋明辩各场比赛的时间、地点、辩题
+		   </p>
+	   </a>
+	   </div>
+   
+	   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-b-r pad-o" >
 	   <a href="/bocai/" class="white-color">
 		  <i class="fa fa-shopping-basket fa-5x" ></i>
 		   <h3 >菠菜</h3>
 		   <p>
-			   清锋明辩有奖竞猜
+			   清锋明辩有奖竞猜，为你看好的队伍投下菠菜吧
+		   </p>
+	   </a>
+	   </div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-b pad-o" >
+		<a target="_blank" href="https://mp.weixin.qq.com/s/9FtINgwxpEtIMgnGbXl_tg" class="white-color">
+		  <i class="fa fa-location-arrow fa-5x" ></i>
+		   <h3 >入协</h3>
+		   <p>
+			   进入报名推送，填写问卷加入我们吧
+		   </p>
+	   </a>
+	   </div>
+   </div>
+   
+		<div class="row text-center">
+	   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-r pad-o" >
+	   <a target="_blank" href="http://telegra.ph/MoBian-03-31" class="white-color">
+		  <i class="fa fa-comments fa-5x" ></i>
+		   <h3 >牵线</h3>
+		   <p>
+			   帮助需要模辩、练习赛的队伍牵线搭桥
 		   </p>
 	   </a>
 	   </div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bdr-r pad-o" >
-		<a href="https://mp.weixin.qq.com/s/9FtINgwxpEtIMgnGbXl_tg" class="white-color">
-		  <i class="fa fa-location-arrow fa-5x" ></i>
-		   <h3 >入协</h3>
+		<a target="_blank" href="https://mp.weixin.qq.com/s/wq9bFo2oRfvmegjf0KX_tA" class="white-color">
+		  <i class="fa fa-home fa-5x" ></i>
+		   <h3 >友情链接</h3>
 		   <p>
-			   进入报名推送，填写问卷加入我们
+			   欢迎关注校辩论队承办的“新型城镇化主题辩论赛”
 		   </p>
 	   </a>
 	   </div>

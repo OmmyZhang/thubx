@@ -8,11 +8,12 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request,'bocai/index.html')
+    name = request.user.username
+    return render(request,'bocai/index.html',{"name":name})
 
 @login_required
 def betting(request):
-    if(1==1):
+    try:
         debates = Debate.objects.all()
         p = Player.objects.get(name = request.user.username)
         haveBocai = p.score 
@@ -75,10 +76,13 @@ def betting(request):
             "debates":debates
             }
         return render(request,'bocai/betting.html',context)
+    except :
+        return HttpResponse('something wrong.Try later or connect at tdxdxoz@gamil.com')
 
 def rank(request):
+    name = request.user.username
     ps = Player.objects.all().order_by("-score")
-    return render(request,'bocai/rank.html',{"players":ps})
+    return render(request,'bocai/rank.html',{"players":ps,"name":name})
 
 @staff_member_required
 def manage(request):
