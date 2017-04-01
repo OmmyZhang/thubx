@@ -82,7 +82,20 @@ def betting(request):
 def rank(request):
     name = request.user.username
     ps = Player.objects.all().order_by("-score")
-    return render(request,'bocai/rank.html',{"players":ps,"name":name})
+    unkown = [0] * ps.count()
+    
+    i=0
+    for p in ps:
+        his_betting = Betting.objects.filter(player=p.name)
+        for bb in his_betting:
+            unkown[i] += bb.num
+        i += 1
+    
+    ps_all = [{}] * ps.count()
+    for i in range(0,ps.count()):
+        ps_all[i] = {"name":ps[i].name,"score":ps[i].score,"more":unkown[i]}
+
+    return render(request,'bocai/rank.html',{"players":ps_all,"name":name,"uk":unkown})
 
 @staff_member_required
 def manage(request):
