@@ -14,7 +14,7 @@ td{border-bottom:1px solid #efefef;text-align:center;}
 body {
 	{% load static %}
 	background:url("{% static "bocai.jpg" %}");
-	background-size:33.333333%;
+	background-size:25%;
 }
 
 .user-info {
@@ -42,7 +42,7 @@ body {
 
 
 
-<div style="background-color:rgba(255,127,0,0.85);margin:2% 7% 0 7%;">
+<div style="background-color:rgba(255,127,0,0.95);margin:2% 7% 0 7%;">
 
 <div align='center' style='background-color:rgba(255,127,0,0.8);padding:1px;color:#ffffff;'>
 <h3 align='center'>排行</h3></div>
@@ -52,7 +52,7 @@ body {
 <tr><td><b>排名</b></td><td ><b>用户名</b></td><td ><b>菠菜数</b></td></tr>
 
 {% for p in players %}
-<tr> <td>{{forloop.counter}}</td> <td>{{p.name}}</td> <td>{{p.score}}(+{{p.more}})</td> </tr>
+<tr> <td>{{forloop.counter}}</td> <td>{{p.name}}</td> <td>{{p.score}} (+{{p.more}})</td> </tr>
 {% endfor %}
 
 

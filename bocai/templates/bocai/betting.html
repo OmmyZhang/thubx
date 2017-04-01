@@ -164,10 +164,10 @@
 		        padding: 10px 20px;
 		    }
 		}
-		p.info {
+		.info {
 			font-size:70%;
 			color:#454632;
-			margin: 2px 30px ;
+			margin: 20pt 0 0 20pt;
 			}
 
 .user-info {
@@ -192,22 +192,24 @@
 {% endif %}
  [<a href="/">回主页</a>]
 </div>
-	
-	<p class="info">
+
+<div class="info">
+	<p>
 		你好，{{name}}。账上还有 {{have}}个菠菜。</br>当前已下注情况：
 	</p>
-	
+
+	<p>	
 	{% for b in bettings %}
-	<p class="info">
 		在{{b.team}}投注{{b.num}},赔率{{b.odds}}。
+	</br>
 	{% endfor %}
-	
+	</p>
 	{% if not bettings %}
-	<p class="info">
+	<p>
 		无
 	</p>
 	{% endif %}
-	
+</div>
 	<div class="form-inline" style="padding: 20px 0;">
 		<div class="container">
 			<div class="row">
