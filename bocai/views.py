@@ -99,5 +99,37 @@ def rank(request):
 
 @staff_member_required
 def manage(request):
-    return 0
+    for bb in Betting.objects.all():
+        if not Player.objects.filter(name=bb.player):
+            bb.delete()
+
+    if request.POST:
+        winner =Betting.objects.filter(team=request.POST['winner'])
+        _winner = [0] * winner.count()
+        i = 0
+        for bb in winner:
+            _winner[i] = bb 
+            i += 1
+            p = Player.objects.get(name=bb.player)
+            p.score += int(bb.num * bb.odds)
+            p.save()
+        winner.delete()
+
+        loser = Betting.objects.filter(team=request.POST['loser']) 
+        _loser = [0] * loser.count()
+        i = 0
+        for bb in loser:
+            _loser[i] = bb
+            i += 1
+        loser.delete() 
+        
+        context = {
+                "winner":_winner,
+                "loser":_loser
+                }
+    else:
+        context = {}
+
+    return render(request,'bocai/manage.html',context)
+
 # Create your views here.
