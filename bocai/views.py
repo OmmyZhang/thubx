@@ -11,9 +11,31 @@ def index(request):
     name = request.user.username
     return render(request,'bocai/index.html',{"name":name})
 
+def update_odds(d):
+    print('update: ' + str(d))
+    bs1 = Betting.objects.filter(team=d.team1, debate_id=d.id)
+    sum1 = 0
+    for b in bs1:
+        sum1 += b.num
+
+    bs2 = Betting.objects.filter(team=d.team2)
+    sum2 = 0
+    for b in bs2:
+        sum2 += b.num
+    
+    print(sum1,sum2)
+
+    odds1 = 1 + (sum2+1000.0) / (sum1+1000)
+    odds2 = 1 + (sum1+1000.0) / (sum2+1000)
+
+    d.odds1 = odds1
+    d.odds2 = odds2
+    d.save()
+    
+
 @login_required
 def betting(request):
-    try:
+   # try:
         debates = Debate.objects.all()
         p = Player.objects.get(name = request.user.username)
         haveBocai = p.score 
@@ -46,14 +68,16 @@ def betting(request):
                 p.save()
 
                 for i in range(0,debates.count()):
+                    this_debate = False
                     if bet[2*i] > 0:
                         b =  Betting(
                                 player = p.name,
                                 team = debates[i].team1,
                                 num = bet[2*i],
-                                odds = debates[i].odds1,
+                                debate_id = debates[i].id,
                                 )
                         b.save()
+                        this_debate = True
                         succ =True
 
                     if bet[2*i+1] > 0:
@@ -61,10 +85,14 @@ def betting(request):
                                 player = p.name,
                                 team = debates[i].team2,
                                 num = bet[2*i+1],
-                                odds = debates[i].odds2,
+                                debate_id = debates[i].id,
                                 )
                         b.save()
+                        this_debate = True
                         succ = True
+                    
+                    if this_debate:
+                        update_odds(debates[i])
 
         bettings = Betting.objects.filter(player=p.name)
         context = {
@@ -75,9 +103,10 @@ def betting(request):
             "bettings":bettings,
             "debates":debates
             }
+        print(bettings)
         return render(request,'bocai/betting.html',context)
-    except :
-        return HttpResponse('something wrong.Try later or connect at tdxdxoz@gamil.com')
+  #  except Exception as e:
+  #      return HttpResponse(repr(e)+ '<br> something wrong.Try later or connect at tdxdxoz@gamil.com')
 
 def rank(request):
     name = request.user.username
@@ -104,14 +133,26 @@ def manage(request):
             bb.delete()
 
     if request.POST:
-        winner =Betting.objects.filter(team=request.POST['winner'])
+        win_team = request.POST['winner']
+        lose_team = request.POST['loser']
+
+        if Debate.objects.filter(team1=win_team, team2=lose_team).exists():
+            d = Debate.objects.get(team1=win_team, team2=lose_team)
+            t1_win = True
+        else:
+            d = Debate.objects.get(team2=win_team,team1=lose_team)
+            t1_win = False
+
+        winner =Betting.objects.filter(team=win_team,debate_id=d.id)
+        odds = d.odds1 if t1_win else d.odds2
+
         _winner = [0] * winner.count()
         i = 0
         for bb in winner:
             _winner[i] = bb 
             i += 1
             p = Player.objects.get(name=bb.player)
-            p.score += int(bb.num * bb.odds)
+            p.score += int(bb.num * odds)
             p.save()
         winner.delete()
 

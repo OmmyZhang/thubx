@@ -200,7 +200,7 @@
 
 	<p>	
 	{% for b in bettings %}
-		在{{b.team}}投注{{b.num}},赔率{{b.odds}}。
+		在{{b.team}}投注{{b.num}}。
 	</br>
 	{% endfor %}
 	</p>
@@ -234,7 +234,7 @@
 						{% for x in debates %}
 						<div class="form-group">
 							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_l" style="width:7em;">
-							<label style="min-width:240px">{{x.team1}}({{x.odds1}}) <B>vs</B> {{x.team2}}({{x.odds2}})</label>
+							<label style="min-width:240px">{{x.team1}}({{x.odds1|floatformat:"3"}}) <B>vs</B> {{x.team2}}({{x.odds2|floatformat:"3"}})</label>
 							<input type="number" class="form-control"  value=0 name="t{{forloop.counter0}}_r" style="width:7em">
   						
   						</div>

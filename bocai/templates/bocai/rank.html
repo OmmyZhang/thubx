@@ -49,7 +49,7 @@ body {
 
 
 <table border='1' cellpadding='7' cellspacing='0' width='100%' align='center'><tbody>
-<tr><td><b>排名</b></td><td ><b>用户名</b></td><td ><b>菠菜数</b></td></tr>
+<tr><td><b>排名</b></td><td ><b>用户名</b></td><td ><b>菠菜数(+尚在投注中的菠菜数)</b></td></tr>
 
 {% for p in players %}
 <tr> <td>{{forloop.counter}}</td> <td>{{p.name}}</td> <td>{{p.score}} (+{{p.more}})</td> </tr>

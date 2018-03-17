@@ -9,7 +9,7 @@ def login_view(request):
     name_error = False
     passwd_error = False
 
-    if request.GET and request.GET.has_key('error'):
+    if request.GET and 'error' in request.GET:
         if request.GET['error'] == 'user':
             name_error = True
         if request.GET['error'] == 'password':
