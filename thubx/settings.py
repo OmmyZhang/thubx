@@ -25,11 +25,8 @@ SECRET_KEY = 'w4(ogfsl(z1ah3$5&#zg$1)^@=x&#wfpz+ucgvq%ul9k_q)dq1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [u'thubx.club',
-		 u'www.thubx.club',
-		 u'thubx.com',
-		 u'www.thubx.com',
-		 u'bx.zhangyn.me'
+ALLOWED_HOSTS = ['club.thu-debate.com',
+		 'thubx.com',
 ]
 
 
