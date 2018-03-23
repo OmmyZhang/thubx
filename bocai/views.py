@@ -36,7 +36,7 @@ def update_odds(d):
 @login_required
 def betting(request):
    # try:
-        debates = Debate.objects.all()
+        debates = Debate.objects.filter(stop=False)
         p = Player.objects.get(name = request.user.username)
         haveBocai = p.score 
 

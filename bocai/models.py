@@ -22,6 +22,7 @@ class Debate(models.Model):
     odds1 = models.FloatField()
     team2 = models.CharField(max_length=50)
     odds2 = models.FloatField()
+    stop  = models.BooleanField(default=False)
     def __str__(self):
         return '%s(%s) vs %s(%s)' % (self.team1,str(self.odds1),self.team2,str(self.odds2))
 # Create your models here.
