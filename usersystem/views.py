@@ -39,7 +39,7 @@ def register(request):
     ne = False
     ie = False
 
-    if request.GET and request.GET.has_key('error'):
+    if request.GET and 'error' in request.GET:
         if request.GET['error'] == 'missingInfo':
             ie = True
         if request.GET['error'] == 'userExist':
