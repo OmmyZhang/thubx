@@ -162,7 +162,11 @@ def manage(request):
         for bb in loser:
             _loser[i] = bb
             i += 1
-        loser.delete() 
+        loser.delete()
+
+        for p in Player.objects.all():
+            p.score += 129
+            p.save()
         
         context = {
                 "winner":_winner,
